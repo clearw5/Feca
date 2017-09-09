@@ -24,6 +24,27 @@ public class DetectedFaces {
         public Point[] mouth; //描述嘴巴轮廓的22点
         public Point[] nose; //描述鼻子轮廓的13点
 
+        public Point[] getUpperLip() {
+            // 0, 21, 20, 19, 18, 17, 6, 7, 8, 9, 10, 11
+            int[] indices = {0, 21, 20, 19, 18, 17, 6, 7, 8, 9, 10, 11};
+            Point[] upperLip = new Point[indices.length];
+            for(int i = 0; i < indices.length; i++){
+                upperLip[i] = mouth[indices[i]];
+            }
+            return upperLip;
+        }
+
+
+        public Point[] getLowerLip() {
+            // 0, 1, 2, 3, 4, 5, 6, 17, 16, 15, 14, 12
+            int[] indices = {0, 1, 2, 3, 4, 5, 6, 16, 15, 14, 13, 12};
+            Point[] lowerLip = new Point[indices.length];
+            for(int i = 0; i < indices.length; i++){
+                lowerLip[i] = mouth[indices[i]];
+            }
+            return lowerLip;
+        }
+
     }
 
 }

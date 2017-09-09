@@ -11,7 +11,6 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -25,7 +24,6 @@ import com.feca.mface.core.facedetection.Youtu;
 import com.feca.mface.core.facemakeup.Lipstick;
 import com.feca.mface.core.imaging.Images;
 import com.feca.mface.core.imaging.Paths;
-import com.feca.mface.util.FileUtils;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -188,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
     private void drawPoints(Canvas canvas, Paint paint, int width, int color, Point[] points) {
         paint.setStrokeWidth(width);
         paint.setColor(color);
-        Path p = Paths.fromPoints(points);
+        Path p = Paths.toPolygon(points);
         p.close();
         canvas.drawPath(p, paint);
     }
