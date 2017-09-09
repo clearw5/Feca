@@ -1,5 +1,6 @@
 package com.feca.mface.core.facedetection;
 
+import android.graphics.Point;
 import android.graphics.Rect;
 
 /**
@@ -8,33 +9,21 @@ import android.graphics.Rect;
 
 public class DetectedFaces {
 
-    public String request_id;
-    public Face[] faces;
-    public String image_id;
-    public int time_used;
-    public String error_message;
+    public FaceShapeItem[] face_shape; // 人脸轮廓结构体，包含所有人脸的轮廓点
+    public int image_width; // 请求图片的宽度
+    public int image_height; //	请求图片的高度
+    public int errorcode; //返回状态值
+    public String errormsg; //返回错误消息
 
-    public static class Face {
-        public String face_token;
-        public FaceRect face_rectangle;
-        public FaceAttributes attributes;
-
-    }
-
-    public static class FaceRect {
-        public int left;
-        public int top;
-        public int width;
-        public int height;
-
-        public Rect toRect() {
-            return new Rect(left, top, left + width, top + height);
-        }
-    }
-
-    public static class FaceAttributes {
+    public static class FaceShapeItem {
+        public Point[] face_profile; //	描述脸型轮廓的21点
+        public Point[] left_eye; //描述左眼轮廓的8点
+        public Point[] right_eye;    //	描述右眼轮廓的8点
+        public Point[] left_eyebrow; //	描述左眉轮廓的8点
+        public Point[] right_eyebrow; //	描述右眉轮廓的8点
+        public Point[] mouth; //描述嘴巴轮廓的22点
+        public Point[] nose; //描述鼻子轮廓的13点
 
     }
-
 
 }

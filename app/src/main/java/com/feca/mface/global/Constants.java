@@ -8,9 +8,10 @@ import okhttp3.RequestBody;
  */
 
 public class Constants {
-    public static final RequestBody REQUEST_BODY_FACEPP_API_KEY = RequestBody.create(MediaType.parse("text/plain"), "KmFLGxOjT0RUDE6l6sNJkFtKYhTbWgEy");
-    public static final RequestBody REQUEST_BODY_FACEPP_API_SECRET = RequestBody.create(MediaType.parse("text/plain"), "rWMaDvvoJRr64c2VZ5aRIoJUyqhAjlf0");
-    public static final String FACEPP_API_KEY = "KmFLGxOjT0RUDE6l6sNJkFtKYhTbWgEy";
-    public static final String FACEPP_API_SECRET = "rWMaDvvoJRr64c2VZ5aRIoJUyqhAjlf0";
+
+    public static final String YOUTU_SECRET_KEY = "Z3MTLVXN0SirpbEcucCbnpiPuCIG3d1F";
+    public static final String YOUTU_SECRET_ID = "AKID0tb8Vig2JPJBsOSqrofOxNWcWFi5gG7l";
+    public static final String YOUTU_APP_ID = "10097040";
+    public static final String YOUTU_USER_ID = "946994919";
 
 }
