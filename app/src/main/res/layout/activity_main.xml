@@ -2,75 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:weightSum="2"
               android:orientation="vertical"
+              android:background="@mipmap/background"
     >
-
-    <Button
-        android:id="@+id/take_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Take Photo"/>
-
-
-    <Button
-        android:id="@+id/pick_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pick Photo"/>
-
-    <Button
-        android:id="@+id/save_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save Photo"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/R"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="161"/>
-
-        <EditText
-            android:id="@+id/G"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="42"/>
-
-        <EditText
-            android:id="@+id/B"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="32"/>
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="top">
 
-            <ImageView
-                android:id="@+id/picture"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/R"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="0dp"
-                android:adjustViewBounds="true"/>
+                android:layout_weight="1"
+                android:text="161" />
+
+            <EditText
+                android:id="@+id/G"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="42" />
+
+            <EditText
+                android:id="@+id/B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="32" />
 
         </LinearLayout>
 
-    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/pick_photo"
+            android:layout_width="172dp"
+            android:layout_height="120dp"
+            android:layout_centerVertical = "true"
+            android:layout_centerHorizontal = "true"
+            android:drawableTop="@mipmap/beauty"
+            android:gravity="bottom"
+            android:padding="16dp"
+            android:textSize="14dp"
+            android:textColor="#ffffff"
+            android:background="@xml/pick_photo_background"
+            android:text="@string/pick_photo"/>
+    </RelativeLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/take_photo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:drawableTop="@mipmap/camera"
+                android:paddingTop="16dp"
+                android:paddingBottom="10dp"
+                android:layout_gravity="center"
+                android:layout_centerVertical = "true"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop="80dp"
+                android:text="@string/take_photo"
+                android:textSize="14dp"
+                android:textColor="#ffffff"
+                android:background="@xml/take_photo_background"/>
+        </LinearLayout>
+
 
 </LinearLayout>

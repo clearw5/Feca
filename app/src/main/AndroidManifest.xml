@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity_">
+
+        </activity>
+
+        <activity android:name=".ui.makeup.MakeupActivity_"/>
+        <activity android:name=".ui.ChooseModeActivity_">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
