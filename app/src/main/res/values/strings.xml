@@ -9,4 +9,16 @@
     <string name="blusher">腮红试色</string>
     <string name="eyebrow">眉笔试色</string>
     <string name="more">更多精彩</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="moment_one_title">一入口红坑似海</string>
+    <string name="news_one_content">初入坑小白盲买不会错：15支口红真人试色推荐</string>
+    <string name="moment_two_title">平价替代品？</string>
+    <string name="news_two_content">平价口红能替代大牌？无PS多图告诉你真相！</string>
+    <string name="moment_three_title">如何给女朋友挑口红？</string>
+    <string name="news_three_content">情人节将至，为您送上直男福利~</string>
+    <string name="moment_four_title">#最美梳妆台#</string>
+    <string name="news_four_content">给你点color see see——17个sleek眼影盘测评</string>
 </resources>
