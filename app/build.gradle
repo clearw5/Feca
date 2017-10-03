@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.feca.mface"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -46,6 +46,7 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     // ButterKnife
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    compile 'com.github.aarsy.googlemapsanimations:googlemapsanimations:1.0.5'
     //Android
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'

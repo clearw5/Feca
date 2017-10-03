@@ -1,36 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#fefefe"
-              android:orientation="vertical">
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            app:title="@string/app_name"
-            app:titleTextColor="@android:color/black"/>
-
-    </android.support.design.widget.AppBarLayout>
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg"
+                android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/feca_logo"/>
 
-
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="-14dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/eca"/>
 
     </LinearLayout>
 
+    <com.feca.mface.widget.WaveView
+        android:id="@+id/wave"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="13.5dp"
+        android:layout_marginRight="0dp"/>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/add"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="89.5dp"
+        android:layout_marginRight="76.2dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:src="@drawable/plus"/>
+
+</RelativeLayout>
