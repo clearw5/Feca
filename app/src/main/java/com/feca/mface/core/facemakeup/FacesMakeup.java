@@ -10,17 +10,39 @@ import com.feca.mface.core.facedetection.DetectedFaces;
 
 public class FacesMakeup {
 
-    private FaceMakeup mFaceMakeup;
+    private Bitmap mOriginalFace;
+    private Bitmap mMadeUpFace;
+    private DetectedFaces mDetectedFaces;
 
-    public FacesMakeup(FaceMakeup faceMakeup) {
-        mFaceMakeup = faceMakeup;
+    public FacesMakeup(Bitmap originalFace, DetectedFaces detectedFaces) {
+        mOriginalFace = originalFace;
+        mDetectedFaces = detectedFaces;
     }
 
-    public void makeup(Bitmap bitmap, DetectedFaces faces) {
-        for (int i = 0; i < faces.face_shape.length; i++) {
-            mFaceMakeup.makeup(bitmap, faces.face_shape[i]);
+    public void makeup(FaceMakeup makeup) {
+        ensureMadeUpFace();
+        for (int i = 0; i < mDetectedFaces.face_shape.length; i++) {
+            makeup.makeup(mMadeUpFace, mDetectedFaces.face_shape[i]);
+        }
+    }
+
+    public void reset() {
+        mMadeUpFace = mOriginalFace.copy(Bitmap.Config.ARGB_8888, true);
+    }
+
+    public Bitmap getMadeUpFace() {
+        ensureMadeUpFace();
+        return mMadeUpFace;
+    }
+
+    private void ensureMadeUpFace() {
+        if (mMadeUpFace == null) {
+            reset();
         }
     }
 
 
+    public Bitmap getOriginalFace() {
+        return mOriginalFace;
+    }
 }

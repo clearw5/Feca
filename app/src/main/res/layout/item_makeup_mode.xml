@@ -5,11 +5,10 @@
               android:gravity="center"
               android:orientation="vertical">
 
-    <View
-        android:id="@+id/color"
+    <ImageView
+        android:id="@+id/icon"
         android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="@drawable/lipstick_color_circular_bg"/>
+        android:layout_height="32dp"/>
 
     <TextView
         android:id="@+id/name"
@@ -17,5 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textColor="#000000"
-        android:textSize="12sp"/>
+        android:textSize="12sp"
+        />
 </LinearLayout>

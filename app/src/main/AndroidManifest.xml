@@ -12,22 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity_">
-        </activity>
-        <activity android:name=".ui.makeup.MakeupActivity_"/>
-        <activity android:name=".ui.ChooseModeActivity_">
-        </activity>
-        <activity
-            android:name=".ui.HomePageActivity"
-            android:theme="@style/ToolBarTheme">
+        <activity android:name=".ui.makeup.MakeupActivity_">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.me_page.MeActivity">
-        </activity>
+        <activity android:name=".ui.MainActivity_"/>
     </application>
 
 </manifest>

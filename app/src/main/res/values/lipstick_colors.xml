@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="lipstick_red">#d50004</color>
+    <color name="lipstick_watermelon_red">#f94743</color>
+    <color name="lipstick_pink">#ff7d8b</color>
+    <color name="lipstick_natural_pink">#fc3d5c</color>
+    <color name="lipstick_coral_orange">#ff605b</color>
+    <color name="lipstick_naked__brown">#d78d84</color>
+    <color name="lipstick_bean_brown">#b96855</color>
+    <color name="lipstick_rose_purple">#e37b9e</color>
+
+    <string name="lipstick_red">正经红</string>
+    <string name="lipstick_watermelon_red">西瓜红</string>
+    <string name="lipstick_pink">嫩粉</string>
+    <string name="lipstick_natural_pink">自然粉</string>
+    <string name="lipstick_coral_orange">珊瑚橘</string>
+    <string name="lipstick_naked__brown">裸棕</string>
+    <string name="lipstick_bean_brown">豆沙粽</string>
+    <string name="lipstick_rose_purple">玫瑰紫</string>
+
+    <array name="lipstick_colors">
+        <item>@color/lipstick_red</item>
+        <item>@color/lipstick_watermelon_red</item>
+        <item>@color/lipstick_pink</item>
+        <item>@color/lipstick_natural_pink</item>
+        <item>@color/lipstick_coral_orange</item>
+        <item>@color/lipstick_naked__brown</item>
+        <item>@color/lipstick_bean_brown</item>
+        <item>@color/lipstick_rose_purple</item>
+    </array>
+
+    <array name="lipstick_names">
+        <item>@string/lipstick_red</item>
+        <item>@string/lipstick_watermelon_red</item>
+        <item>@string/lipstick_pink</item>
+        <item>@string/lipstick_natural_pink</item>
+        <item>@string/lipstick_coral_orange</item>
+        <item>@string/lipstick_naked__brown</item>
+        <item>@string/lipstick_bean_brown</item>
+        <item>@string/lipstick_rose_purple</item>
+    </array>
+
+</resources>

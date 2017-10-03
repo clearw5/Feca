@@ -65,4 +65,7 @@ public class Youtu {
         return sign.toString();
     }
 
+    public String sign() {
+        return sign(0);
+    }
 }

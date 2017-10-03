@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    @Click(R.id.take_photo)
+  //  @Click(R.id.take_photo)
     void takePhoto() {
         startActivityForResult(new Intent("android.media.action.IMAGE_CAPTURE"), REQUEST_CODE_TAKE_PHOTO);
     }
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             data.setClass(this, MakeupActivity_.class);
-            data.putExtra("data",data.getData());
+            data.putExtra("data", data.getData());
             startActivity(data);
         }
     }
