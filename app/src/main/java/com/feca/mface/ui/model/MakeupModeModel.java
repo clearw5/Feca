@@ -1,4 +1,4 @@
-package com.feca.mface.ui.makeup;
+package com.feca.mface.ui.model;
 
 import com.feca.mface.R;
 

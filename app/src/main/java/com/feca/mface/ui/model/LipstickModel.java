@@ -1,4 +1,4 @@
-package com.feca.mface.ui.makeup;
+package com.feca.mface.ui.model;
 
 import android.content.Context;
 import android.content.res.TypedArray;

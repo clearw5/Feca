@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.feca.mface.R;
+import com.feca.mface.ui.model.LipstickModel;
 import com.feca.mface.widget.BindableViewHolder;
 
 import butterknife.BindView;

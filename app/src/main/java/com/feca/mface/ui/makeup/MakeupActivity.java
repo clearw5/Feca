@@ -18,6 +18,8 @@ import com.feca.mface.core.facedetection.DetectedFaces;
 import com.feca.mface.core.facedetection.FaceDetectService;
 import com.feca.mface.core.facemakeup.FacesMakeup;
 import com.feca.mface.core.facemakeup.Lipstick;
+import com.feca.mface.ui.model.LipstickModel;
+import com.feca.mface.ui.model.MakeupModeModel;
 import com.feca.mface.util.RxBitmap;
 import com.feca.mface.widget.OnRecyclerViewItemClickListener;
 import com.feca.mface.widget.ReadOnlyAdapter;
@@ -28,8 +30,6 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;

@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.feca.mface.R;
+import com.feca.mface.ui.model.MakeupModeModel;
 import com.feca.mface.widget.BindableViewHolder;
 
 import butterknife.BindView;
