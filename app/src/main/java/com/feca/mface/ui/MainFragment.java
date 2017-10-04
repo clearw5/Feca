@@ -1,6 +1,7 @@
 package com.feca.mface.ui;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.widget.ImageView;
 
@@ -22,7 +23,6 @@ import static android.app.Activity.RESULT_OK;
 @EFragment(R.layout.fragment_main)
 public class MainFragment extends Fragment {
 
-    public static final int REQUEST_CODE_TAKE_PHOTO = 111;
     private static final int REQUEST_CODE_SELECT_IMAGE = 123;
 
     @ViewById(R.id.add)
@@ -36,7 +36,6 @@ public class MainFragment extends Fragment {
     //(779.2, 1579.3), r=195.3
     @AfterViews
     void setupViews() {
-        super.onStart();
         mWaveView.setInitialRadius(195);
         mWaveView.setMaxRadius(300);
         mWaveView.setSpeed(1000);
@@ -47,21 +46,15 @@ public class MainFragment extends Fragment {
 
     @Click(R.id.add)
     void add() {
-
+        Intent chooserIntent = Intent.createChooser(new Intent(Intent.ACTION_GET_CONTENT)
+                .setType("image/*"), getString(R.string.select_image))
+                .putExtra(Intent.EXTRA_INITIAL_INTENTS,
+                        new Intent[]{
+                                new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                        });
+        startActivityForResult(chooserIntent, REQUEST_CODE_SELECT_IMAGE);
     }
 
-
-    //  @Click(R.id.take_photo)
-    void takePhoto() {
-        startActivityForResult(new Intent("android.media.action.IMAGE_CAPTURE"), REQUEST_CODE_TAKE_PHOTO);
-    }
-
-    //@Click(R.id.pick_photo)
-    void pickPhoto() {
-        startActivityForResult(Intent.createChooser(
-                new Intent(Intent.ACTION_GET_CONTENT).setType("image/*"), getString(R.string.select_image)),
-                REQUEST_CODE_SELECT_IMAGE);
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
