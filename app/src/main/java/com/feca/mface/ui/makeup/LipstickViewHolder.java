@@ -3,6 +3,7 @@ package com.feca.mface.ui.makeup;
 import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.feca.mface.R;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
 public class LipstickViewHolder extends BindableViewHolder<LipstickModel> {
 
     @BindView(R.id.color)
-    View mLipstickColor;
+    ImageView mLipstickColor;
 
     @BindView(R.id.name)
     TextView mName;

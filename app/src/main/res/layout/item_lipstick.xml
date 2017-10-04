@@ -2,10 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="70dp"
               android:layout_height="100dp"
+              android:background="?selectableItemBackgroundBorderless"
+              android:clickable="true"
               android:gravity="center"
               android:orientation="vertical">
 
-    <View
+    <ImageView
         android:id="@+id/color"
         android:layout_width="32dp"
         android:layout_height="32dp"

@@ -26,4 +26,8 @@
     <string name="foundation_test">粉底试色</string>
     <string name="eyeshadow_test">眼影试色</string>
     <string name="eyebrow_pencil_test">眉笔试色</string>
+    <string name="save">保存</string>
+    <string name="buy">购买</string>
+    <string name="no_permission">没有权限！</string>
+    <string name="developing">本功能正在开发中..</string>
 </resources>
