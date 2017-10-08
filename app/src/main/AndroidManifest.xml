@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.makeup.MakeupActivity_"/>
+        <activity android:name=".ui.forum.DetailActivity_"/>
     </application>
 
 </manifest>

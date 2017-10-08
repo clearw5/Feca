@@ -9,13 +9,10 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.Xfermode;
 
 import com.feca.mface.core.facedetection.DetectedFaces;
 import com.feca.mface.core.imaging.ColorDetector;
 import com.feca.mface.core.imaging.Paths;
-
-import java.util.Arrays;
 
 /**
  * Created by Stardust on 2017/9/7.
@@ -28,10 +25,12 @@ public class Lipstick implements FaceMakeup {
     private int mColor;
 
     public Lipstick(int color) {
-        mColor = color;
+        int newcolor = 0X60000000 + color;
+        mColor = newcolor;
     }
 
 
+   // @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void makeup(Bitmap image, DetectedFaces.FaceShapeItem face) {
         //Path mouthBounds = Paths.toPolygon(face.mouth);

@@ -1,16 +1,17 @@
 package com.feca.mface.ui.forum;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.feca.mface.R;
 import com.feca.mface.ui.model.Post;
+import com.feca.mface.widget.OnRecyclerViewItemClickListener;
 import com.feca.mface.widget.ReadOnlyAdapter;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -34,13 +35,20 @@ public class ForumFragment extends Fragment {
         mPosts = Arrays.asList(
                 new Post(getString(R.string.moment_one_title), getString(R.string.news_one_content), R.drawable.post_picture1),
                 new Post(getString(R.string.moment_two_title), getString(R.string.news_two_content), R.drawable.post_picture2),
-                new Post(getString(R.string.moment_three_title), getString(R.string.news_two_content), R.drawable.post_picture3),
-                new Post(getString(R.string.moment_four_title), getString(R.string.news_two_content), R.drawable.post_picture4)
+                new Post(getString(R.string.moment_three_title), getString(R.string.news_three_content), R.drawable.post_picture3),
+                new Post(getString(R.string.moment_four_title), getString(R.string.news_four_content), R.drawable.post_picture4)
         );
 
         mPostList.setLayoutManager(new LinearLayoutManager(getContext()));
         mPostList.setAdapter(new ReadOnlyAdapter<>(mPosts, PostViewHolder.class));
+        mPostList.addOnItemTouchListener(new OnRecyclerViewItemClickListener(this.getActivity()) {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(new Intent(getActivity(),DetailActivity_.class).putExtra("number",position));
+            }
+        });
     }
+
 
 
 }

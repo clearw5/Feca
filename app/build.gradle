@@ -60,4 +60,7 @@ dependencies {
     compile 'com.makeramen:roundedimageview:2.3.0'
     compile 'com.jakewharton:butterknife:8.6.0'
     testCompile 'junit:junit:4.12'
+    //Material Dialog
+    //compile 'com.afollestad.material-dialogs:core:0.9.4.7'
+    //compile 'com.afollestad.material-dialogs:commons:0.9.4.7'
 }

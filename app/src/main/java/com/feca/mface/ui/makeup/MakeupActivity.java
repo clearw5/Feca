@@ -26,7 +26,6 @@ import com.feca.mface.core.facemakeup.FacesMakeup;
 import com.feca.mface.core.facemakeup.Lipstick;
 import com.feca.mface.ui.model.LipstickModel;
 import com.feca.mface.ui.model.MakeupModeModel;
-import com.feca.mface.ui.model.Post;
 import com.feca.mface.util.RxBitmap;
 import com.feca.mface.widget.OnRecyclerViewItemClickListener;
 import com.feca.mface.widget.ReadOnlyAdapter;
@@ -53,7 +52,6 @@ import io.reactivex.schedulers.Schedulers;
  */
 @EActivity(R.layout.activity_makeup)
 public class MakeupActivity extends AppCompatActivity {
-
 
     @ViewById(R.id.picture)
     ImageView mPhoto;
@@ -91,6 +89,7 @@ public class MakeupActivity extends AppCompatActivity {
                 bitmapObservable.flatMap(new Function<Bitmap, ObservableSource<DetectedFaces>>() {
                     @Override
                     public ObservableSource<DetectedFaces> apply(@NonNull Bitmap bitmap) throws Exception {
+
                         return FaceDetectService.getInstance().detect(bitmap);
                     }
                 });
@@ -129,6 +128,12 @@ public class MakeupActivity extends AppCompatActivity {
                 } else {
                     onLipstickColorSelected((LipstickViewHolder) holder, position);
                 }
+            }
+        });
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -210,6 +215,7 @@ public class MakeupActivity extends AppCompatActivity {
     void completeMakeup() {
         exitMakeupMode();
     }
+
 
     private void doSavingPhoto() {
         File file = new File(Environment.getExternalStorageDirectory(), System.currentTimeMillis() + ".png");
