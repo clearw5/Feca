@@ -13,14 +13,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="moment_one_title">一入口红坑似海</string>
-    <string name="news_one_content">初入坑小白盲买不会错：15支口红真人试色推荐</string>
-    <string name="moment_two_title">平价替代品？</string>
-    <string name="news_two_content">平价口红能替代大牌？无PS多图告诉你真相！</string>
-    <string name="moment_three_title">如何给女朋友挑口红？</string>
-    <string name="news_three_content">情人节将至，为您送上直男福利~</string>
-    <string name="moment_four_title">#最美梳妆台#</string>
-    <string name="news_four_content">给你点color see see——17个sleek眼影盘测评</string>
+    <string name="moment_title1">一入口红坑似海</string>
+    <string name="moment_summary1">初入坑小白盲买不会错：15支口红真人试色推荐</string>
+    <string name="moment_title2">平价替代品？</string>
+    <string name="moment_summary2">平价口红能替代大牌？无PS多图告诉你真相！</string>
+    <string name="moment_title3">如何给女朋友挑口红？</string>
+    <string name="moment_summary3">情人节将至，为您送上直男福利~</string>
+    <string name="moment_title4">#最美梳妆台#</string>
+    <string name="moment_summary4">给你点color see see——17个sleek眼影盘测评</string>
     <string name="lipstick_test">口红试色</string>
     <string name="blusher_test">腮红试色</string>
     <string name="foundation_test">粉底试色</string>
@@ -30,4 +30,5 @@
     <string name="buy">购买</string>
     <string name="no_permission">没有权限！</string>
     <string name="developing">本功能正在开发中..</string>
+    <string name="detail">详情</string>
 </resources>

@@ -33,10 +33,10 @@ public class ForumFragment extends Fragment {
     @AfterViews
     void setupViews() {
         mPosts = Arrays.asList(
-                new Post(getString(R.string.moment_one_title), getString(R.string.news_one_content), R.drawable.post_picture1),
-                new Post(getString(R.string.moment_two_title), getString(R.string.news_two_content), R.drawable.post_picture2),
-                new Post(getString(R.string.moment_three_title), getString(R.string.news_three_content), R.drawable.post_picture3),
-                new Post(getString(R.string.moment_four_title), getString(R.string.news_four_content), R.drawable.post_picture4)
+                new Post(getString(R.string.moment_title1), getString(R.string.moment_summary1), R.drawable.post_picture1),
+                new Post(getString(R.string.moment_title2), getString(R.string.moment_summary2), R.drawable.post_picture2),
+                new Post(getString(R.string.moment_title3), getString(R.string.moment_summary3), R.drawable.post_picture3),
+                new Post(getString(R.string.moment_title4), getString(R.string.moment_summary4), R.drawable.post_picture4)
         );
 
         mPostList.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -44,7 +44,7 @@ public class ForumFragment extends Fragment {
         mPostList.addOnItemTouchListener(new OnRecyclerViewItemClickListener(this.getActivity()) {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(getActivity(),DetailActivity_.class).putExtra("number",position));
+                startActivity(new Intent(getActivity(), DetailActivity_.class).putExtra("number",position));
             }
         });
     }

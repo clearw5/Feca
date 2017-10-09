@@ -41,6 +41,8 @@ public class WaveView extends View {
             }
         }
     };
+    private float mY;
+    private float mX;
 
     public WaveView(Context context) {
         this(context, null);
@@ -96,7 +98,7 @@ public class WaveView extends View {
                 mPaint.setAlpha(circle.getAlpha());
                 float r = circle.getCurrentRadius() - mInitialRadius;
                 mPaint.setStrokeWidth(r);
-                canvas.drawCircle(getWidth() / 2, getHeight() / 2, mInitialRadius + r / 2, mPaint);
+                canvas.drawCircle(mX, mY, mInitialRadius + r / 2, mPaint);
             } else {
                 iterator.remove();
             }
@@ -132,6 +134,11 @@ public class WaveView extends View {
         mCircleList.add(circle);
         invalidate();
         mLastCreateTime = currentTime;
+    }
+
+    public void setWaveCenter(float centerX, float centerY) {
+        mX = centerX;
+        mY = centerY;
     }
 
     private class Circle {

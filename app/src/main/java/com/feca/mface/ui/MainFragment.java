@@ -36,11 +36,20 @@ public class MainFragment extends Fragment {
     //(779.2, 1579.3), r=195.3
     @AfterViews
     void setupViews() {
-        mWaveView.setInitialRadius(195);
-        mWaveView.setMaxRadius(300);
+        final float picWidth = 736;
+        final float picHeight = 1374;
+        final float radius = 136.4f;
+        int screenWidth = getResources().getDisplayMetrics().widthPixels;
+        int screenHeight = getResources().getDisplayMetrics().heightPixels;
+        float radiusScale = (float) (Math.sqrt(screenWidth / picWidth * screenHeight / picHeight));
+        float centerX = 531 * screenWidth / picWidth;
+        float centerY = 1130.2f * screenHeight / picHeight;
+        mWaveView.setInitialRadius(radius * radiusScale);
+        mWaveView.setMaxRadius(210 * radiusScale);
         mWaveView.setSpeed(1000);
         mWaveView.setDuration(4000);
         mWaveView.setColor(0xff16f9e1);
+        mWaveView.setWaveCenter(centerX, centerY);
         mWaveView.start();
     }
 
