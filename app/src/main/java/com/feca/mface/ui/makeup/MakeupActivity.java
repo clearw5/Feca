@@ -75,16 +75,11 @@ public class MakeupActivity extends AppCompatActivity {
             new ReadOnlyAdapter<>(MakeupModeModel.modes(), MakeupModeViewHolder.class);
     private FacesMakeup mFacesMakeup;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     private void initFaceMakeup() {
         Uri uri = getIntent().getData();
         if (uri == null)
             return;
-        Observable<Bitmap> bitmapObservable = RxBitmap.decodeBitmap(getContentResolver(), uri);
+        Observable<Bitmap> bitmapObservable = RxBitmap.decodeBitmap(getContentResolver(), uri, 1024 * 1500);
         Observable<DetectedFaces> detectedFacesObservable =
                 bitmapObservable.flatMap(new Function<Bitmap, ObservableSource<DetectedFaces>>() {
                     @Override
@@ -130,7 +125,7 @@ public class MakeupActivity extends AppCompatActivity {
                 }
             }
         });
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

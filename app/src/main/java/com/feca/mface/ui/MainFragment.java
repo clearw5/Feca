@@ -1,7 +1,10 @@
 package com.feca.mface.ui;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.widget.ImageView;
 
@@ -13,6 +16,8 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
+
+import java.io.File;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -30,6 +35,14 @@ public class MainFragment extends Fragment {
 
     @ViewById(R.id.wave)
     WaveView mWaveView;
+
+    private File mPhotoTmpFile;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mPhotoTmpFile = new File(getContext().getExternalCacheDir(), "feca.tmp.png");
+    }
 
     //(531, 1130.2), r=136.4
     //w=736, h=1374
@@ -60,6 +73,7 @@ public class MainFragment extends Fragment {
                 .putExtra(Intent.EXTRA_INITIAL_INTENTS,
                         new Intent[]{
                                 new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                                        .putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mPhotoTmpFile))
                         });
         startActivityForResult(chooserIntent, REQUEST_CODE_SELECT_IMAGE);
     }
@@ -68,9 +82,13 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            data.setClass(getActivity(), MakeupActivity_.class);
-            data.putExtra("data", data.getData());
-            startActivity(data);
+            Uri uri = Uri.fromFile(mPhotoTmpFile);
+            if (data != null && data.getData() != null) {
+                uri = data.getData();
+            }
+            MakeupActivity_.intent(this)
+                    .data(uri)
+                    .start();
         }
     }
 

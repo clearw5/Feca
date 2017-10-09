@@ -24,7 +24,7 @@ import io.reactivex.functions.Function;
 
 public class RxBitmap {
 
-    public static Observable<Bitmap> decodeBitmap(final ContentResolver resolver, final Uri uri) {
+    public static Observable<Bitmap> decodeBitmap(final ContentResolver resolver, final Uri uri, int sizeLimit) {
         return Observable.fromCallable(new Callable<Bitmap>() {
             @Override
             public Bitmap call() throws Exception {
