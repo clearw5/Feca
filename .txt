@@ -1,0 +1,132 @@
+commit c552fb249ff5d94b99bb92587609cabb7407f1a6
+tree fc2d94da7fdd8bf880f9da85e384405b1a44da91
+parent 52cde82a8098f68a08b8ad347b6fabf0be005d5c
+author hyb1996 <946994919@qq.com> 1507535818 +0800
+committer hyb1996 <946994919@qq.com> 1507535818 +0800
+
+    修复相机拍照后无图片问题。增加圈圈。
+
+diff --git a/app/src/main/java/com/feca/mface/ui/MainFragment.java b/app/src/main/java/com/feca/mface/ui/MainFragment.java
+index 5ad6cc5..47108d8 100644
+--- a/app/src/main/java/com/feca/mface/ui/MainFragment.java
++++ b/app/src/main/java/com/feca/mface/ui/MainFragment.java
+@@ -1,7 +1,10 @@
+ package com.feca.mface.ui;
+ 
+ import android.content.Intent;
++import android.net.Uri;
++import android.os.Bundle;
+ import android.provider.MediaStore;
++import android.support.annotation.Nullable;
+ import android.support.v4.app.Fragment;
+ import android.widget.ImageView;
+ 
+@@ -14,6 +17,8 @@ import org.androidannotations.annotations.Click;
+ import org.androidannotations.annotations.EFragment;
+ import org.androidannotations.annotations.ViewById;
+ 
++import java.io.File;
++
+ import static android.app.Activity.RESULT_OK;
+ 
+ /**
+@@ -31,6 +36,14 @@ public class MainFragment extends Fragment {
+     @ViewById(R.id.wave)
+     WaveView mWaveView;
+ 
++    private File mPhotoTmpFile;
++
++    @Override
++    public void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        mPhotoTmpFile = new File(getContext().getExternalCacheDir(), "feca.tmp.png");
++    }
++
+     //(531, 1130.2), r=136.4
+     //w=736, h=1374
+     //(779.2, 1579.3), r=195.3
+@@ -60,6 +73,7 @@ public class MainFragment extends Fragment {
+                 .putExtra(Intent.EXTRA_INITIAL_INTENTS,
+                         new Intent[]{
+                                 new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
++                                        .putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mPhotoTmpFile))
+                         });
+         startActivityForResult(chooserIntent, REQUEST_CODE_SELECT_IMAGE);
+     }
+@@ -68,9 +82,13 @@ public class MainFragment extends Fragment {
+     @Override
+     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+         if (resultCode == RESULT_OK) {
+-            data.setClass(getActivity(), MakeupActivity_.class);
+-            data.putExtra("data", data.getData());
+-            startActivity(data);
++            Uri uri = Uri.fromFile(mPhotoTmpFile);
++            if (data != null && data.getData() != null) {
++                uri = data.getData();
++            }
++            MakeupActivity_.intent(this)
++                    .data(uri)
++                    .start();
+         }
+     }
+ 
+diff --git a/app/src/main/java/com/feca/mface/ui/makeup/MakeupActivity.java b/app/src/main/java/com/feca/mface/ui/makeup/MakeupActivity.java
+index 6e96408..63f3d6a 100644
+--- a/app/src/main/java/com/feca/mface/ui/makeup/MakeupActivity.java
++++ b/app/src/main/java/com/feca/mface/ui/makeup/MakeupActivity.java
+@@ -75,16 +75,11 @@ public class MakeupActivity extends AppCompatActivity {
+             new ReadOnlyAdapter<>(MakeupModeModel.modes(), MakeupModeViewHolder.class);
+     private FacesMakeup mFacesMakeup;
+ 
+-    @Override
+-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-    }
+-
+     private void initFaceMakeup() {
+         Uri uri = getIntent().getData();
+         if (uri == null)
+             return;
+-        Observable<Bitmap> bitmapObservable = RxBitmap.decodeBitmap(getContentResolver(), uri);
++        Observable<Bitmap> bitmapObservable = RxBitmap.decodeBitmap(getContentResolver(), uri, 1024 * 1500);
+         Observable<DetectedFaces> detectedFacesObservable =
+                 bitmapObservable.flatMap(new Function<Bitmap, ObservableSource<DetectedFaces>>() {
+                     @Override
+@@ -130,7 +125,7 @@ public class MakeupActivity extends AppCompatActivity {
+                 }
+             }
+         });
+-        mToolbar.setNavigationOnClickListener(new View.OnClickListener(){
++        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 finish();
+diff --git a/app/src/main/java/com/feca/mface/util/RxBitmap.java b/app/src/main/java/com/feca/mface/util/RxBitmap.java
+index 49400c4..485c1ed 100644
+--- a/app/src/main/java/com/feca/mface/util/RxBitmap.java
++++ b/app/src/main/java/com/feca/mface/util/RxBitmap.java
+@@ -24,7 +24,7 @@ import io.reactivex.functions.Function;
+ 
+ public class RxBitmap {
+ 
+-    public static Observable<Bitmap> decodeBitmap(final ContentResolver resolver, final Uri uri) {
++    public static Observable<Bitmap> decodeBitmap(final ContentResolver resolver, final Uri uri, int sizeLimit) {
+         return Observable.fromCallable(new Callable<Bitmap>() {
+             @Override
+             public Bitmap call() throws Exception {
+diff --git a/app/src/main/res/layout/activity_makeup.xml b/app/src/main/res/layout/activity_makeup.xml
+index 8e41a51..61f85e6 100644
+--- a/app/src/main/res/layout/activity_makeup.xml
++++ b/app/src/main/res/layout/activity_makeup.xml
+@@ -28,6 +28,11 @@
+             android:layout_height="0dp"
+             android:layout_weight="1">
+ 
++            <ProgressBar
++                android:layout_width="50dp"
++                android:layout_height="50dp"
++                android:layout_gravity="center"/>
++
+             <ImageView
+                 android:id="@+id/picture"
+                 android:layout_width="match_parent"

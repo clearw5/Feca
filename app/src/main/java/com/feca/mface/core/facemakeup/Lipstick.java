@@ -13,6 +13,9 @@ import android.graphics.RectF;
 import com.feca.mface.core.facedetection.DetectedFaces;
 import com.feca.mface.core.imaging.ColorDetector;
 import com.feca.mface.core.imaging.Paths;
+import com.megvii.facepp.sdk.Facepp;
+
+import java.util.Arrays;
 
 /**
  * Created by Stardust on 2017/9/7.
@@ -30,7 +33,7 @@ public class Lipstick implements FaceMakeup {
     }
 
 
-   // @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    // @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void makeup(Bitmap image, DetectedFaces.FaceShapeItem face) {
         //Path mouthBounds = Paths.toPolygon(face.mouth);
@@ -46,6 +49,17 @@ public class Lipstick implements FaceMakeup {
         canvas.drawPath(Paths.toCatmullRomCurve(face.getLowerLip()), p);
         canvas.drawPath(Paths.toCatmullRomCurve(face.getUpperLip()), p);
 
+    }
+
+    public void makeup(Bitmap image, Facepp.Face face) {
+        Canvas canvas = new Canvas(image);
+        Paint p = new Paint();
+        p.setAntiAlias(true);
+        p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.OVERLAY));
+        p.setColor(mColor);
+        p.setStrokeJoin(Paint.Join.ROUND);
+        canvas.drawPath(Paths.toCatmullRomCurve(face.points), p);
+        //canvas.drawPath(Paths.toCatmullRomCurve(face.points), p);
     }
 
     private int extractLipAverageColor(Bitmap image, Path mouthBounds) {

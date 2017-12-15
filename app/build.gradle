@@ -3,7 +3,7 @@ def AAVersion = '4.2.0'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    buildToolsVersion "26.0.2"
 
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
@@ -23,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -63,4 +64,6 @@ dependencies {
     //Material Dialog
     //compile 'com.afollestad.material-dialogs:core:0.9.4.7'
     //compile 'com.afollestad.material-dialogs:commons:0.9.4.7'
+    compile(name:'MGFaceppSDK-0.5.2', ext:'aar')
+    compile(name:'MGLicenseManagerSDK-0.3.0', ext:'aar')
 }

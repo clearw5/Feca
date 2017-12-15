@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Feca.iml" filepath="$PROJECT_DIR$/Feca.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Feca-master.iml" filepath="$PROJECT_DIR$/Feca-master.iml" />
+      <module fileurl="file://C:\Users\Stardust\Documents\AndroidProjects\Feca\Feca-master.iml" filepath="C:\Users\Stardust\Documents\AndroidProjects\Feca\Feca-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

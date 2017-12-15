@@ -14,4 +14,7 @@ public class Constants {
     public static final String YOUTU_APP_ID = "10097040";
     public static final String YOUTU_USER_ID = "946994919";
 
+    public static final String FACEPP_UUID = "1";
+    public static final String FACEPP_API_KEY = "CthihOEqM1Cg6AYVvhbMKmEHWTieVTva";
+    public static final String FACEPP_API_SECRET = "xtaGh7cAAsLptpYGVarbgQONc2o8EpY7";
 }

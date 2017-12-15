@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.widget.ImageView;
 
 import com.feca.mface.R;
+import com.feca.mface.ui.camera.CameraActivity;
 import com.feca.mface.ui.makeup.MakeupActivity_;
 import com.feca.mface.widget.WaveView;
 
@@ -68,6 +69,7 @@ public class MainFragment extends Fragment {
 
     @Click(R.id.add)
     void add() {
+        startActivity(new Intent(getActivity(), CameraActivity.class));
         Intent chooserIntent = Intent.createChooser(new Intent(Intent.ACTION_GET_CONTENT)
                 .setType("image/*"), getString(R.string.select_image))
                 .putExtra(Intent.EXTRA_INITIAL_INTENTS,
@@ -75,7 +77,7 @@ public class MainFragment extends Fragment {
                                 new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                                         .putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mPhotoTmpFile))
                         });
-        startActivityForResult(chooserIntent, REQUEST_CODE_SELECT_IMAGE);
+      //  startActivityForResult(chooserIntent, REQUEST_CODE_SELECT_IMAGE);
     }
 
 
